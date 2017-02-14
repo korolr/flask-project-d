@@ -5,7 +5,7 @@
 #### imports ####
 #################
 
-from flask import render_template, Blueprint
+from flask import render_template, Blueprint, request
 from project.server.models import Post
 
 
@@ -22,18 +22,23 @@ main_blueprint = Blueprint('main', __name__,)
 ################
 
 
-@main_blueprint.route('/')
+@main_blueprint.route('/', methods = ['GET'])
 @main_blueprint.route('/index', methods = ['GET', 'POST'])
 @main_blueprint.route('/index/<int:page>', methods = ['GET', 'POST'])
 def home(page = 1):
+    q = request.args.get('q')
+    if q:
+        # TODO Найти рабочий полнотекстовый поиск для орм
+        post = Post.query.filter_by(title=q).all()
+        return render_template('main/home_q.html', posts=post)
+
     post = Post.query.paginate(page, 8, False)
     return render_template('main/home.html', posts=post)
 
-@main_blueprint.route('/cat/', methods = ['GET', 'POST'])
-def cat():
-    post = Post.query.filter_by(category=2)
-    print(post)
-    return render_template('main/home.html', posts=post)
+@main_blueprint.route('/cat/<string:name>', methods = ['GET', 'POST'])
+def cat(name = ''):
+    post = Post.query.filter_by(category=name).all()
+    return render_template('main/home_q.html', posts=post)
 
 @main_blueprint.route('/post/<int:post_id>')
 def show_post(post_id):

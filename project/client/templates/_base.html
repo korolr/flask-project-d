@@ -2,7 +2,13 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>Animus A Blogging Category Flat Bootstarp Resposive Website Template | Home :: w3layouts</title>
+<title>
+        {% if post %}
+            {{ post.title }}
+        {% else %}
+            Среды разработки
+        {% endif %}
+</title>
 <link href="{{url_for('static', filename='css/bootstrap.css')}}" rel="stylesheet" type="text/css" media="all">
 <link href="{{url_for('static', filename='css/style.css')}}" rel="stylesheet" type="text/css" media="all" />
 <meta name="viewport" content="width=device-width, initial-scale=1">

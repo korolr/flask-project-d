@@ -6,12 +6,11 @@
 			</div>
 			<div class="header-right">
 				<ul>
-					<li><a href="#"><i class="fb"> </i></a></li>
-					<li><a href="#"><i class="twt"> </i></a></li>
+					<li><a href="https://twitter.com/korolr22"><i class="twt"> </i></a></li>
 				<li>
 				<div class="search2">
-					<form>
-						<input type="text" value="Search.." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search..';}">
+					<form method="get">
+						<input name="q" type="text" value="Поиск.." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search..';}">
 						<input type="submit" value="">
 					</form>
 				</div></li>
@@ -24,11 +23,12 @@
 				<div class="head-nav">
 					<span class="menu"> </span>
 						<ul class="cl-effect-15">
-						<li class="active"><a href="">HOME</a></li>
-							<li><a href="about.html" data-hover="ABOUT">ABOUT</a></li>
-							<li><a href="photos.html" data-hover="PHOTOS">PHOTOS</a></li>
-							<li><a href="404.html" data-hover="ARCHIVES">ARCHIVES</a></li>
-							<li><a href="contact.html" data-hover="CONTACT">CONTACT</a></li>
+						<li class="active"><a href="">Домой</a></li>
+							<li><a href="/cat/ide" data-hover="IDE">IDE</a></li>
+							<li><a href="/cat/text" data-hover="TEXT">TEXT</a></li>
+							<li><a href="/cat/git" data-hover="GIT">GIT</a></li>
+							<li><a href="/cat/web" data-hover="WEB">WEB</a></li>
+                            <li><a href="/cat/lang" data-hover="ЯЗЫК">ЯЗЫК</a></li>
                             {% if current_user.is_authenticated %}
             <li data-hover="Выход" ><a href="{{ url_for('user.logout') }}">Выход</a></li>
           {% else %}
