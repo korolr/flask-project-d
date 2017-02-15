@@ -3,11 +3,6 @@
 {% block content %}
 
 
-
-
-
-
-
 <div class="content">
 	<div class="container">
 	 <div class="load_more">
@@ -34,14 +29,9 @@
                             </div>
 					</li>
 
-			        <!----//--->
-
-
-					<div class="clearfix"></div>
-					 <!----//--->
 			      </ul>
                     {% if posts.has_prev %}<div id="loadMore"><a href="{{ url_for('.home', page=posts.prev_num) }}"> Новые записи</a></div>{% else %} {% endif %}
-{% if posts.has_next %}<div id="loadMore"><a href="{{ url_for('.home', page=posts.next_num) }}">Старые записи</a></div>{% else %} {% endif %}
+                    {% if posts.has_next %}<div id="loadMore"><a href="{{ url_for('.home', page=posts.next_num) }}">Старые записи</a></div>{% else %} {% endif %}
 
 			    </div>
 	</div>
