@@ -39,7 +39,7 @@ class User(db.Model):
         return self.id
 
     def is_admin(self):
-        if self.admin == True:
+        if self.admin:
             return True
         else:
             return False

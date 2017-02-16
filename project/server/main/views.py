@@ -42,7 +42,6 @@ def cat(name = ''):
 
 @main_blueprint.route('/post/<int:post_id>')
 def show_post(post_id):
-    # show the post with the given id, the id is an integer
     return render_template('main/post.html', post=Post.query.get(post_id))
 
 
