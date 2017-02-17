@@ -23,12 +23,17 @@
 				<div class="head-nav">
 					<span class="menu"> </span>
 						<ul class="cl-effect-15">
-						<li class="active"><a href="">Домой</a></li>
-							<li><a href="/cat/ide" data-hover="IDE">IDE</a></li>
-							<li><a href="/cat/text" data-hover="TEXT">TEXT</a></li>
-							<li><a href="/cat/git" data-hover="GIT">GIT</a></li>
-							<li><a href="/cat/web" data-hover="WEB">WEB</a></li>
-                            <li><a href="/cat/lang" data-hover="ЯЗЫК">ЯЗЫК</a></li>
+                        {% if names %}
+						<li ><a href="/">Домой</a></li>
+                        {% else %}
+                        <li class="active"><a href="/">Домой</a></li>
+                        {% endif %}
+
+						    <li {% if names == "ide" %} class="active"{% endif %}><a href="/cat/ide" >IDE</a></li>
+							<li {% if names == "text" %} class="active"{% endif %}><a href="/cat/text" >TEXT</a></li>
+							<li {% if names == "git" %} class="active"{% endif %}><a href="/cat/git" >GIT</a></li>
+							<li {% if names == "web" %} class="active"{% endif %}><a href="/cat/web" >WEB</a></li>
+                            <li {% if names == "lang" %} class="active"{% endif %}><a href="/cat/lang" >ЯЗЫК</a></li>
                             {% if current_user.is_authenticated %}
             <li data-hover="Выход" ><a href="{{ url_for('user.logout') }}">Выход</a></li>
           {% else %}

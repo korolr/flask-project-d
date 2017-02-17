@@ -38,7 +38,7 @@ def home(page = 1):
 @main_blueprint.route('/cat/<string:name>', methods = ['GET', 'POST'])
 def cat(name = ''):
     post = Post.query.filter_by(category=name).all()
-    return render_template('main/home_q.html', posts=post)
+    return render_template('main/home_q.html', posts=post, names=name)
 
 @main_blueprint.route('/post/<int:post_id>')
 def show_post(post_id):

@@ -7,13 +7,13 @@ from wtforms.validators import DataRequired, Email, Length, EqualTo
 
 
 class LoginForm(FlaskForm):
-    email = StringField('Email Address', [DataRequired(), Email()])
-    password = PasswordField('Password', [DataRequired()])
+    email = StringField('Email Адрес', [DataRequired(), Email()])
+    password = PasswordField('Пароль', [DataRequired()])
 
 
 class RegisterForm(FlaskForm):
     email = StringField(
-        'Email Address',
+        'Email Адрес',
         validators=[
             DataRequired(),
             Email(message=None),
@@ -21,11 +21,11 @@ class RegisterForm(FlaskForm):
         ]
     )
     password = PasswordField(
-        'Password',
+        'Пароль',
         validators=[DataRequired(), Length(min=6, max=25)]
     )
     confirm = PasswordField(
-        'Confirm password',
+        'Подтверждение пароля',
         validators=[
             DataRequired(),
             EqualTo('password', message='Passwords must match.')

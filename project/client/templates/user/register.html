@@ -2,10 +2,12 @@
 {% import "bootstrap/wtf.html" as wtf %}
 
 {% block content %}
+    <br>
+    <br>
 <div class="content">
 	<div class="container">
   <header class="content-header">
-    <h1>Please Register</h1>
+    <h1>Пожайлуста зрагеистрируйтесь</h1>
   </header>
 
   <br>
@@ -24,14 +26,18 @@
       {{ wtf.form_field(form.password) }}
       {{ wtf.form_field(form.confirm) }}
 
-      <button class="btn btn-success" type="submit">Register!</button>
+      <button class="btn btn-success" type="submit">Регистрация!</button>
       <br><br>
-      <p>Already have an account? <a href="{{ url_for('user.login') }}">Sign in</a>.</p>
+      <p>Уже имеете аккаунт ? <a href="{{ url_for('user.login') }}">Войти</a>.</p>
 
     </div>
 
   </form>
 </div>
     </div>
+    <br>
+    <br><br>
+    <br><br>
+    <br>
 
 {% endblock content %}
