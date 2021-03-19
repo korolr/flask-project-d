@@ -18,7 +18,7 @@ Flask-SQLAlchemy==2.1
 Flask-Testing==0.6.1
 Flask-WTF==0.14.2
 itsdangerous==0.24
-Jinja2==2.9.5
+Jinja2==2.11.3
 Mako==1.0.6
 Markdown==2.6.8
 MarkupSafe==0.23
